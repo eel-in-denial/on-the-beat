@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcwt3q4fxiqcy"]
+
+[ext_resource type="Material" uid="uid://clcwpiilqau6h" path="res://World/tiles.tres" id="1_df7id"]
+
+[node name="Line2D" type="Line2D"]
+material = ExtResource("1_df7id")
+closed = true
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2

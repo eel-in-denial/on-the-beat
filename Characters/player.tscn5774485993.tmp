@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://y2avaq386ve5"]
+
+[ext_resource type="Texture2D" uid="uid://biqclhnor26w6" path="res://icon.svg" id="1_5mj4t"]
+[ext_resource type="Script" uid="uid://ba3i6lo18fqnu" path="res://Characters/player.gd" id="1_eovys"]
+[ext_resource type="PackedScene" uid="uid://ca4fminw731bo" path="res://Characters/action_controller.tscn" id="3_4m0gv"]
+[ext_resource type="Script" uid="uid://bjkm1vq22dybx" path="res://Characters/dash.gd" id="4_l48on"]
+[ext_resource type="Script" uid="uid://dn7cepdlcv0uj" path="res://Characters/attack_1.gd" id="5_l48on"]
+[ext_resource type="Script" uid="uid://cuqctbkktmyqg" path="res://Characters/attack_2.gd" id="6_4m0gv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mj4t"]
+radius = 32.0
+height = 64.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_eovys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5mj4t")
+
+[node name="invulnerable" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5mj4t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5mj4t")
+
+[node name="ActionController" parent="." instance=ExtResource("3_4m0gv")]
+multimode = null
+
+[node name="Dash" type="Node2D" parent="ActionController" node_paths=PackedStringArray("body")]
+script = ExtResource("4_l48on")
+body = NodePath("../..")
+
+[node name="Attack_1" type="Node2D" parent="ActionController"]
+script = ExtResource("5_l48on")
+
+[node name="Attack_2" type="Node2D" parent="ActionController"]
+script = ExtResource("6_4m0gv")
+
+[node name="DirectionalPointer" type="Sprite2D" parent="."]
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("1_5mj4t")
+offset = Vector2(300, 0)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dk414q3hjyqj2"
+path="res://.godot/imported/Round 4.ogg-842a2f37b86c8e9cee87e86ef0b0965d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Round 4.ogg"
+dest_files=["res://.godot/imported/Round 4.ogg-842a2f37b86c8e9cee87e86ef0b0965d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://que71yg1imo5"
+path="res://.godot/imported/roulette round 2 slow.ogg-cb497108fe3b242ae2b995b502c40f82.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/roulette round 2 slow.ogg"
+dest_files=["res://.godot/imported/roulette round 2 slow.ogg-cb497108fe3b242ae2b995b502c40f82.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://y2avaq386ve5"]
+
+[ext_resource type="Texture2D" uid="uid://biqclhnor26w6" path="res://icon.svg" id="1_5mj4t"]
+[ext_resource type="Script" uid="uid://ba3i6lo18fqnu" path="res://Characters/player.gd" id="1_eovys"]
+[ext_resource type="Script" uid="uid://dir3t3epav6w6" path="res://Characters/action_controller.gd" id="3_65n15"]
+[ext_resource type="Script" uid="uid://bjkm1vq22dybx" path="res://Characters/dash.gd" id="4_l48on"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mj4t"]
+radius = 32.0
+height = 64.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_eovys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5mj4t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5mj4t")
+
+[node name="ActionController" type="Node2D" parent="."]
+script = ExtResource("3_65n15")
+
+[node name="Dash" type="Node2D" parent="ActionController" node_paths=PackedStringArray("body")]
+script = ExtResource("4_l48on")
+body = NodePath("../..")

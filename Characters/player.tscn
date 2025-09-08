@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://y2avaq386ve5"]
+
+[ext_resource type="Script" uid="uid://ba3i6lo18fqnu" path="res://Characters/player.gd" id="1_eovys"]
+[ext_resource type="PackedScene" uid="uid://ca4fminw731bo" path="res://Characters/action_controller.tscn" id="3_4m0gv"]
+[ext_resource type="Script" uid="uid://bjkm1vq22dybx" path="res://Characters/dash.gd" id="4_l48on"]
+[ext_resource type="PackedScene" uid="uid://dcwt3q4fxiqcy" path="res://World/line_2d.tscn" id="5_l48on"]
+[ext_resource type="Shader" uid="uid://dnxb26tpd0624" path="res://World/line_2d.gdshader" id="6_4m0gv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p728j"]
+shader = ExtResource("6_4m0gv")
+shader_parameter/line_color = Color(1, 1, 0.901961, 1)
+shader_parameter/glow_color = Color(0.2, 1, 0.9, 1)
+shader_parameter/glow_width = 0.5
+shader_parameter/line_width = 0.1
+shader_parameter/glow_strength = 0.9
+shader_parameter/pulsing = false
+shader_parameter/line_visible = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l48on"]
+radius = 35.0571
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_eovys")
+
+[node name="ActionController" parent="." instance=ExtResource("3_4m0gv")]
+
+[node name="Dash" type="Node2D" parent="ActionController" node_paths=PackedStringArray("body")]
+script = ExtResource("4_l48on")
+speed = 16
+body = NodePath("../..")
+
+[node name="sprite" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="sprite"]
+position = Vector2(16, 0)
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-24, 32, 0, -32, 24, 32)
+
+[node name="Line2D" parent="sprite" instance=ExtResource("5_l48on")]
+material = SubResource("ShaderMaterial_p728j")
+position = Vector2(16, 0)
+rotation = 1.5708
+points = PackedVector2Array(-24, 32, 0, -32, 24, 32)
+width = 25.0
+
+[node name="Line2D" type="Line2D" parent="sprite/Line2D"]
+points = PackedVector2Array(-24, 32, 0, -32, 24, 32)
+closed = true
+width = 4.0
+joint_mode = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l48on")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

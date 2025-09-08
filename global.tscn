@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvyq5cgf5qqts"]
+
+[ext_resource type="Script" uid="uid://w4crajcohk8d" path="res://global.gd" id="1_6q3x5"]
+[ext_resource type="AudioStream" uid="uid://dk414q3hjyqj2" path="res://Assets/Round 4.ogg" id="2_2wtbm"]
+[ext_resource type="AudioStream" uid="uid://dfviytw1at0kd" path="res://Assets/SFX_UI_Cancel.ogg" id="3_2wtbm"]
+
+[node name="Global" type="Node2D"]
+script = ExtResource("1_6q3x5")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2wtbm")
+parameters/looping = true
+
+[node name="Metronome" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2wtbm")

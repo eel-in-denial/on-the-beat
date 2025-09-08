@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca4fminw731bo"]
+
+[ext_resource type="Script" uid="uid://dir3t3epav6w6" path="res://Characters/action_controller.gd" id="1_fiqln"]
+[ext_resource type="Script" uid="uid://dn7kj4j050q2v" path="res://Characters/stationary.gd" id="2_cseyj"]
+
+[node name="ActionController" type="Node2D"]
+script = ExtResource("1_fiqln")
+
+[node name="Stationary" type="Node2D" parent="."]
+script = ExtResource("2_cseyj")

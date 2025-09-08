@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clcwpiilqau6h"]
+
+[ext_resource type="Shader" uid="uid://dnxb26tpd0624" path="res://World/line_2d.gdshader" id="1_hppkf"]
+
+[resource]
+shader = ExtResource("1_hppkf")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glow_color = Color(0.772549, 0.0941176, 1, 1)
+shader_parameter/glow_width = 0.5
+shader_parameter/line_width = 0.05
+shader_parameter/glow_strength = 0.5
+shader_parameter/pulsing = false
+shader_parameter/line_visible = 0.0
