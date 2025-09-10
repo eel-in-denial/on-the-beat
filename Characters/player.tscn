@@ -26,7 +26,7 @@ script = ExtResource("1_eovys")
 
 [node name="Dash" type="Node2D" parent="ActionController" node_paths=PackedStringArray("body")]
 script = ExtResource("4_l48on")
-speed = 16
+speed = 10
 body = NodePath("../..")
 
 [node name="sprite" type="Node2D" parent="."]

@@ -11,13 +11,19 @@ config_version=5
 [application]
 
 config/name="On the beat"
-run/main_scene="uid://cu0c8j7doqod3"
+run/main_scene="uid://dwgyvkxmojlxa"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://global.tscn"
+
+[display]
+
+window/size/viewport_width=576
+window/size/viewport_height=324
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

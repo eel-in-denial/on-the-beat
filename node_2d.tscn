@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwgyvkxmojlxa"]
+
+[ext_resource type="Script" uid="uid://cowygv4ih1wa6" path="res://node_2d.gd" id="1_epypp"]
+[ext_resource type="PackedScene" uid="uid://dcwt3q4fxiqcy" path="res://World/line_2d.tscn" id="2_0hol4"]
+[ext_resource type="Shader" uid="uid://dnxb26tpd0624" path="res://World/line_2d.gdshader" id="3_q6r6c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdubu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d21ai"]
+shader = ExtResource("3_q6r6c")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glow_color = Color(0.160784, 1, 0.137255, 1)
+shader_parameter/glow_width = 0.5
+shader_parameter/line_width = 0.1
+shader_parameter/glow_strength = 1.0
+shader_parameter/pulsing = false
+shader_parameter/line_visible = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj586"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4d7sh"]
+shader = ExtResource("3_q6r6c")
+shader_parameter/line_color = Color(1, 1, 0.901961, 1)
+shader_parameter/glow_color = Color(1, 0, 0, 1)
+shader_parameter/glow_width = 0.5
+shader_parameter/line_width = 0.1
+shader_parameter/glow_strength = 1.0
+shader_parameter/pulsing = false
+shader_parameter/line_visible = 1.0
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_epypp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_left = -23698.0
+offset_top = -120585.0
+offset_right = 19779.0
+offset_bottom = 14840.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 508.0
+offset_top = 158.0
+offset_right = 637.0
+offset_bottom = 284.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kdubu")
+
+[node name="Line2D" parent="Button" instance=ExtResource("2_0hol4")]
+material = SubResource("ShaderMaterial_d21ai")
+position = Vector2(20, 10)
+points = PackedVector2Array(0, 0, 100, 50, 0, 100)
+width = 20.0
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 503.0
+offset_top = 383.0
+offset_right = 641.0
+offset_bottom = 522.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rj586")
+
+[node name="Line2D" parent="Button2" instance=ExtResource("2_0hol4")]
+material = SubResource("ShaderMaterial_4d7sh")
+position = Vector2(20, 20)
+points = PackedVector2Array(0, 0, 100, 100)
+closed = false
+width = 20.0
+
+[node name="Line2D2" parent="Button2" instance=ExtResource("2_0hol4")]
+material = SubResource("ShaderMaterial_4d7sh")
+position = Vector2(20, 20)
+points = PackedVector2Array(100, 0, 0, 100)
+closed = false
+width = 20.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
